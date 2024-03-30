@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FEMS.Core", "FEMS.Core\FEMS.Core.fsproj", "{D916F991-78E6-4B7A-8AD2-B737884D4783}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FEMS.Test", "FEMS.Test\FEMS.Test.fsproj", "{EEE76FE3-4DFB-434C-99E7-6B308CE06D97}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D916F991-78E6-4B7A-8AD2-B737884D4783}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D916F991-78E6-4B7A-8AD2-B737884D4783}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D916F991-78E6-4B7A-8AD2-B737884D4783}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D916F991-78E6-4B7A-8AD2-B737884D4783}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEE76FE3-4DFB-434C-99E7-6B308CE06D97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEE76FE3-4DFB-434C-99E7-6B308CE06D97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEE76FE3-4DFB-434C-99E7-6B308CE06D97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEE76FE3-4DFB-434C-99E7-6B308CE06D97}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79D70800-BD3E-435D-9694-233A6E331C49}
+	EndGlobalSection
+EndGlobal
