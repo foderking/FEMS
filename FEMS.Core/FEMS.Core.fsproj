@@ -9,6 +9,7 @@
     <Compile Include="Base.fs" />
     <Compile Include="Solver.fs" />
     <Compile Include="Assemble.fs" />
+    <Compile Include="Elements\Beam.fs" />
   </ItemGroup>
 
   <ItemGroup>
