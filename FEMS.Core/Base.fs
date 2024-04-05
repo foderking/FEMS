@@ -30,6 +30,18 @@ module Operations =
             let global_i = guide[local_i]
             globalVector[global_i] <- globalVector[global_i] + localVector[local_i]
 
+    let assemble(localMatrix: MatrixD, globalMatrix: MatrixD, 
+        localVector: VectorD, globalVector: VectorD, guide: List<int>): unit =
+        let n = guide.Length
+
+        for local_i in 0..n-1 do
+            let global_i = guide[local_i]
+            globalVector[global_i] <- globalVector[global_i] + localVector[local_i]
+            for local_j in 0..n-1 do
+                let global_j = guide[local_j]
+                globalMatrix[global_i,global_j] <- globalMatrix[global_i,global_j] + localMatrix[local_i,local_j]
+
+
     let enforceBC(globalMatrix: MatrixD, globalVector: VectorD, matrixConstr: List<List<int>>, vecConstr: List<List<int>>): unit =
         for [bcIndex; bcValue] in vecConstr do 
             globalVector[bcIndex] <- bcValue
