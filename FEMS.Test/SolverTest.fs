@@ -1,4 +1,4 @@
-﻿module Solver
+﻿module Test.Solver
 
 open Xunit
 open MathNet.Numerics.LinearAlgebra

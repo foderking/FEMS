@@ -9,7 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Tests.fs" />
+    <Compile Include="Base.fs" />
+    <Compile Include="Elements\Beam1dTest.fs" />
     <Compile Include="SolverTest.fs" />
     <Compile Include="AssembleTest.fs" />
     <Compile Include="Program.fs" />

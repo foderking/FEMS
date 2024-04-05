@@ -1,4 +1,4 @@
-﻿module Assemble
+﻿module Test.Assemble
 
 open Xunit
 open MathNet.Numerics.LinearAlgebra
@@ -6,7 +6,7 @@ open MathNet.Numerics.LinearAlgebra
 [<Fact>]
 let ``basic test assembling global matrix`` () =
     let globalM = DenseMatrix.create 8 8 0.0
-    FEMS.Core.Assemble.assemble( 
+    FEMS.Core.Operations.assembleMatrix( 
         DenseMatrix.ofRowList [[1;2;3;4];[5;6;7;8];[9;10;11;12];[13;14;15;16]], globalM, [3;0;1;4]
     )
     Assert.Equal(globalM, matrix [
