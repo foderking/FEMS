@@ -84,3 +84,49 @@ let ``cantilever fixed at left end and downward uniformly distributed load``() =
 
     Assert.True(looseEqual(w_l_exact, X[w_l]))
     Assert.True(looseEqual(θ_l_exact, X[θ_l]))
+
+[<Fact>]
+let ``beam with point load at distance``() =
+    (*
+                  P
+                  |
+                  ↓
+        1    3    5    7 <- angular displacement  (θ)
+        |----|----|----|
+        0    2    4    6 <- vertical displacement (w)
+        ▲              ▲
+    *)
+    let n_elems = 3;
+    let EI = 20000.0
+    let q = -5.0
+    let L = 2.0
+    let w_0, w_l = 0, 6
+    let θ_0, θ_l = 1, 7
+    let a, b = L*2.0/3.0, L/3.0
+    let w_load = 4
+    let P = -5
+
+    let elem = Elements.Beam1d(L, n_elems, EI, beamType=Elements.BoundaryForce(0,0,0,0))
+    let n_nodes = elem.totalNodes
+
+    let global_k = DenseMatrix.create n_nodes n_nodes 0.0
+    let local_k  = (elem :> Element).localStiffNess
+    let global_f = DenseVector.create n_nodes 0.0
+    let local_f  = (elem :> Element).localForce
+
+    for i in 0..n_elems-1 do
+        Operations.assemble(local_k, global_k, local_f, global_f,[2*i..2*i+3])
+
+    Operations.enforceBC(global_k,global_f, [[w_0;0];[w_l;0]],[[w_load;-P]])
+
+    let X = Solve.staticEquilibrum(global_k,global_f)
+    let w_mid_exact = double -P*b*(3.0*L*L-4.0*b*b)/(48.0*EI)
+    let θ_l_exact = double P*a*b*(L+a)/(6.0*EI*L)
+    let N = elem.shape(L/double n_elems/2.0)
+    let elem_2 = X[2..5]
+
+    Assert.True(looseEqual(θ_l_exact, X[θ_l]))
+    Assert.True(looseEqual(w_mid_exact, N.DotProduct(elem_2)))
+
+
+
