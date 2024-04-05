@@ -38,7 +38,7 @@ type Beam1d(L: double, n: double, EI: double, beamType: BeamForceType) =
     member this.shape(x: double): VectorD =
         DenseVector.ofList [
             1.0 - 3.0*(x/l)**2 + 2.0*(x/l)**3;
-            x - 2.0*x**2/l + x**3/l**2;
+            x - 2.0*x*x/l + x*x*x/l/l;
             3.0*(x/l)**2 - 2.0*(x/l)**3;
             -x*x/l + x*x*x/l/l;
         ]
