@@ -11,6 +11,7 @@ type BeamForceType =
     // (F1,M1,F2,M2) f and m represents forces at moments at left end (1) and right end (2)
     | BoundaryForce  of double*double*double*double
 
+/// Euler bernoulli beam using cubic shape function
 type Beam1d(L: double, n: double, EI: double, beamType: BeamForceType) =
     let l = L/n;
 
